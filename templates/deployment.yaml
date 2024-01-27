@@ -18,4 +18,4 @@ spec:
         - name: sample
           image: teja4360/sample
           ports:
-            - containerPort: { {  .Values.container_port } }
+            - containerPort: 80
