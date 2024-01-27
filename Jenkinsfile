@@ -1,7 +1,9 @@
 pipeline {
 
   agent any
-
+  option {
+    ansiColor('xterm')
+  }
   parameters {
     string(name: 'component', defaultValue: '', description: 'App Component Name')
     string(name: 'version', defaultValue: '', description: 'container version')
