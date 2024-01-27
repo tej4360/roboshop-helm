@@ -4,6 +4,7 @@ pipeline {
 
   parameters {
     string(name: 'component', defaultValue: '', description: 'App Component Name')
+    string(name: 'version', defaultValue: '', description: 'container version')
   }
 
   stages {
