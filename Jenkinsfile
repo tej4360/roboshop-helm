@@ -11,6 +11,11 @@ pipeline {
 
     stage('Clone App Repo') {
       steps {
+        dir('APP') {
+          git branch: 'main', url: 'https://github.com/tej4360/{component}.git'
+        }
+      }
+      steps {
         dir('HELM') {
           git branch: 'main', url: 'https://github.com/tej4360/roboshop-helm.git'
         }
@@ -21,7 +26,7 @@ pipeline {
     stage('Helm Deploy') {
       steps {
         dir('HELM') {
-          sh 'helm upgrade -i frontend . --kubeconfig=/etc/rancher/k3s/k3s.yaml -f ../APP/values.yaml'
+          sh 'helm upgrade -i {component} . --kubeconfig=/etc/rancher/k3s/k3s.yaml -f ../APP/values.yaml'
         }
 
       }
