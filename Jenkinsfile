@@ -11,7 +11,7 @@ pipeline {
     stage('Clone App Repo') {
       steps {
         dir('APP') {
-          git branch: 'main', url: 'https://github.com/tej4360/{component}.git'
+          git branch: 'main', url: 'https://github.com/tej4360/${component}.git'
         }
       }
       steps {
@@ -25,7 +25,7 @@ pipeline {
     stage('Helm Deploy') {
       steps {
         dir('HELM') {
-          sh 'helm upgrade -i {component} . --kubeconfig=/etc/rancher/k3s/k3s.yaml -f ../APP/values.yaml'
+          sh 'helm upgrade -i ${component} . --kubeconfig=/etc/rancher/k3s/k3s.yaml -f ../APP/values.yaml'
         }
 
       }
