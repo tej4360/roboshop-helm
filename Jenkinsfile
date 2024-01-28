@@ -1,8 +1,6 @@
 pipeline {
 
-    agent {
-        label 'kubek3s'
-    }
+  agent any
 
   parameters {
     string(name: 'component', defaultValue: '', description: 'App Component Name')
