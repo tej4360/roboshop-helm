@@ -11,9 +11,6 @@ pipeline {
 
     stage('Clone App Repo') {
       steps {
-         dir('APP') {
-           git branch: 'main', url: 'https://github.com/tej4360/frontend.git'
-         }
         dir('HELM') {
           git branch: 'main', url: 'https://github.com/tej4360/roboshop-helm.git'
         }
@@ -24,7 +21,7 @@ pipeline {
     stage('Helm Deploy') {
       steps {
         dir('HELM') {
-          sh '/usr/local/bin/helm upgrade -i frontend . -f ../APP/values.yaml --set'
+          sh '/usr/local/bin/helm upgrade -i frontend .
         }
 
       }
