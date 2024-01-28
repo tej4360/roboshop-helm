@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.component }}-service
+spec:
+  type: {{ .Values.service }}
+  selector:
+    app: {{ .Values.component }}
+  ports:
+    - port: {{ .Values.svcport }}
+      targetPort: {{ .Values.target }}
+      {{- if .Values.nodeport }}
+      nodePort: 30010
+      {{- end }}
