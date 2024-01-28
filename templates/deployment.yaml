@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.component }}
+  name: sample
   labels:
     app: sample
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.component }}
+      app: sample
   template:
     metadata:
       labels:
-        app: {{ .Values.component }}
+        app: sample
     spec:
       containers:
         - name: sample
-          image: teja4360/{{ .Values.component }}:{{ .Values.version }}
+          image: teja4360/sample:2.0
           ports:
             - containerPort: 80
