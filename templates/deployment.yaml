@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: {{ .Values.component }}
   labels:
-    app: frontend
+    app: {{ .Values.component }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: frontend
+      app: {{ .Values.component }}
   template:
     metadata:
       labels:
-        app: frontend
+        app: {{ .Values.component }}
     spec:
       containers:
-        - name: frontend
-          image: teja4360/frontend:2.0
+        - name: {{ .Values.component }}
+          image: teja4360/{{ .Values.component }}:{{ .Values.version }}
           ports:
-            - containerPort: 80
+            - containerPort: {{ .Values.containerport }}

@@ -21,7 +21,7 @@ pipeline {
     stage('Helm Deploy') {
       steps {
         dir('HELM') {
-          sh 'helm upgrade -i frontend . --kubeconfig=/etc/rancher/k3s/k3s.yaml'
+          sh 'helm upgrade -i frontend . --kubeconfig=/etc/rancher/k3s/k3s.yaml -f ../APP/values.yaml'
         }
 
       }
