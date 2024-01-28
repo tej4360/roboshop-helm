@@ -24,7 +24,7 @@ pipeline {
     stage('Helm Deploy') {
       steps {
         dir('HELM') {
-          sh 'helm upgrade -i frontend . -f ../APP/values.yaml --set'
+          sh '/usr/local/bin/helm upgrade -i frontend . -f ../APP/values.yaml --set'
         }
 
       }
