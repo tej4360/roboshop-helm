@@ -21,7 +21,7 @@ pipeline {
     stage('Helm Deploy') {
       steps {
         dir('HELM') {
-          sh '/usr/local/bin/helm upgrade -i frontend .'
+          sh 'helm upgrade -i frontend .'
         }
 
       }
