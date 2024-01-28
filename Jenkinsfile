@@ -13,6 +13,7 @@ pipeline {
       steps {
         dir('APP') {
           git branch: 'main', url: 'https://github.com/tej4360/${component}'
+          }
         }
       steps {
         dir('HELM') {
