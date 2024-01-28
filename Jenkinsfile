@@ -12,11 +12,11 @@ pipeline {
     stage('Clone App Repo') {
       steps {
         dir('APP') {
-          git branch: 'main', url: 'https://github.com/raghudevopsb72/${component}'
+          git branch: 'main', url: 'https://github.com/tej4360/${component}'
         }
       steps {
         dir('HELM') {
-          git branch: 'main', url: 'https://github.com/teja4360/roboshop-helm'
+          git branch: 'main', url: 'https://github.com/tej4360/roboshop-helm.git'
         }
       }
 
