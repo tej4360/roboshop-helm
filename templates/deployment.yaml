@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: {{ .Values.component }}
-          image: teja4360/{{ .Values.component }}:{{ .Values.version1 }}.{{ .Values.version2 }}
+          image: {{ .Values.image }}
           ports:
             - containerPort: {{ .Values.containerport }}
